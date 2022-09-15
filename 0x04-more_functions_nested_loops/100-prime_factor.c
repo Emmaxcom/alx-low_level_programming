@@ -7,18 +7,20 @@
 
 int main(void)
 {
-long int n = 612852475143;
-int i;
-int x = n / 3i;
-int prime = 3;
+	unsigned int a = 2;
+	unsigned long n = 612852475143;
 
-for (i = 10; i <= x; i++)
-{
-if ((n % i == 0) &&  i > prime)
-{
-prime = i;
-}
-}
-printf("%d", prime);
-return (0);
+	while (a != n)
+	{
+		if (n % a == 0)
+		{
+			n = n / a;
+		}
+		else
+		{
+			a++;
+		}
+	}
+	printf("%1u\n", n);
+	return (0);
 }
