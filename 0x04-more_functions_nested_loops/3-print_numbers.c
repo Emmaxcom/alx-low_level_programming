@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
@@ -10,11 +9,10 @@
 
 void print_numbers(void)
 {
-int n;
+char item;
 
-for (n = 48; n < 58; n++)
-{
-putchar(a);
-}
-putchar(10);
+for (item = '0'; item <= '9'; item++)
+_putchar(item);
+
+_putchar('\n');
 }
