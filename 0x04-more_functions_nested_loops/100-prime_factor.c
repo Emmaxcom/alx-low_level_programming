@@ -8,11 +8,8 @@
 int main(void)
 {
 	long int n = 612852475143;
-
 	int i;
-
 	int x = n / 3;
-
 	int prime = 3;
 
 	for (i = 10; i <= x; i++)
