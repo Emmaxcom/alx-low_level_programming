@@ -1,56 +1,41 @@
 #include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stddef.h>
 
 /**
- * string_nconcat - Adds specific number of bytes of one string to another
- * @s1: The first string
- * @s2:	The string to be added to @s1
- * @n:	Number of bytes of @s2 to be added to @s1
- * Return: Pointer to memory containing s1 + s2
- * NULL if the function fails
+ * string_nconcat - concatenate the first n bytes of a string to another
  *
+ * @str1: pointer to the first string
+ *
+ * @str2: pointer to the second string
+ *
+ * @size: size of str2 to be concatenated
+ *
+ * Return: pointer to the concatenated string
  */
 
-char *string_nconcat(char *s1, char *s2, unsigned int n)
+char *string_nconcat(char *str1, char *str2, unsigned int size)
 {
-char *new;
-int i, j, len1, len2;
 
-len1 = strlen(s1);
-len2 = strlen(s2);
+	unsigned int dist1, dist2;
 
-if (n > len2)
-	n = len2;
+	char *ptr;
 
-new = malloc(sizeof(char) * (len1 + len2) +1);
+	if (str1 == NULL)
+		str1 = "";
 
-if (!new)
-	return (NULL);
+	if (str2 == NULL)
+		str2 = "";
 
-i = 0;
-while (s1[i] != '\0')
-	{
-	new[i] = s1[i];
-	i++;
-	}
+	dist1 = strlen(str1);
+	dist2 = strlen(str2) <= size ? strlen(str2) : size;
+	ptr = malloc(dist1 + dist2 + 1);
 
-j = len1;
+	if (ptr == NULL)
+		return (NULL);
+	strcpy(ptr, str1);
+	strncat(ptr, str2, size);
 
-if (s2 != NULL)
-	{
-	for (i = 0; i < n; i++)
-		{
-		new[j + i] = s2[i];
-		}
-	}
-
-else
-	{
-	new[j] = ' ';
-	new[j + 1] = '\0';
-	}
-
-return (new);
+	return (ptr);
 }
