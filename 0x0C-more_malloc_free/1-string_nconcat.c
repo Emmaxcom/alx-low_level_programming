@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stddef.h>
@@ -11,46 +10,47 @@
  * @n:	Number of bytes of @s2 to be added to @s1
  * Return: Pointer to memory containing s1 + s2
  * NULL if the function fails
+ *
  */
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *new;
-	int i, j, len1, len2;
+char *new;
+int i, j, len1, len2;
 
-	len1 = strlen(s1);
-	len2 = strlen(s2);
+len1 = strlen(s1);
+len2 = strlen(s2);
 
-	if (n > len2)
-		n = len2;
+if (n > len2)
+	n = len2;
 
-	new = malloc(sizeof(char) * (len1 + len2) +1);
+new = malloc(sizeof(char) * (len1 + len2) +1);
 
-	if (!new)
-		return (NULL);
+if (!new)
+	return (NULL);
 
-	i = 0;
-	while (s1[i] != '\0')
+i = 0;
+while (s1[i] != '\0')
 	{
-		new[i] = s1[i];
-		i++;
+	new[i] = s1[i];
+	i++;
 	}
 
-	j = len1;
+j = len1;
 
-	if (s2 != NULL)
+if (s2 != NULL)
 	{
-		for (i = 0; i < n; i++)
+	for (i = 0; i < n; i++)
 		{
-			new[j + i] = s2[i];
+		new[j + i] = s2[i];
 		}
 	}
 
-	else
+else
 	{
-		new[j] = ' ';
-		new[j + 1] = '\0';
+	new[j] = ' ';
+	new[j + 1] = '\0';
 	}
 
-	return (new);
+return (new);
 }
