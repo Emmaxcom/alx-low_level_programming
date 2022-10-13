@@ -20,6 +20,7 @@ void print_c(va_list c)
 void print_s(va_list s)
 {
 	char *str = va_arg(s, char *);
+
 	if (str == NULL)
 		str = "(nil)";
 	printf("%s", str);
